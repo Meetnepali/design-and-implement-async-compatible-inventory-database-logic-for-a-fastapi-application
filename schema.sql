@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS products (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(128) NOT NULL UNIQUE,
+    description VARCHAR(512),
+    quantity INTEGER NOT NULL DEFAULT 0,
+    price FLOAT8 NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_products_name ON products (name);
